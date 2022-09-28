@@ -60,7 +60,7 @@ class _AppBarExampleState extends State<AppBarExample> {
         ),
       ),
       body: const Center(
-        child: Home(),
+        child: Briefcase(),
       ),
     );
   }

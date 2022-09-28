@@ -6,23 +6,22 @@ class BriefInfo extends StatelessWidget {
   final String _title;
   final String _content;
   final String _description;
-  final int _quantity;
+  final int _indicator;
   final String _image;
 
 
   BriefInfo(
-      this._image, this._title, this._content, this._description, this._quantity);
+      this._image, this._title, this._content, this._description, this._indicator);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-   
       color: Colors.white,
       child: InkWell(
           onTap: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-              return BriefDetails(_title, _content, _description, _quantity);
+              return BriefDetails(_title, _content, _description, _indicator);
             }));
           },
           child: Stack(
@@ -54,12 +53,12 @@ class Brief {
   final String title;
   final String content;
   final String description;
-  final int quantity;
+  final int indicator;
 
-  Brief(this.image, this.title, this.content, this.description, this.quantity);
+  Brief(this.image, this.title, this.content, this.description, this.indicator);
 
   @override
   String toString() {
-    return 'Brief{title: $title, content: $content, description: $description, quantity: $quantity}';
+    return 'Brief{title: $title, content: $content, description: $description, quantity: $indicator}';
   }
 }

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'brief_info.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Briefcase extends StatefulWidget {
+  const Briefcase({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Briefcase> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Briefcase> {
   final List<Brief> _Briefs = [];
 
   final String _des = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
@@ -24,12 +24,12 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    _Briefs.add(Brief("assets/images/color2.png", "My list Items", _des, "All the answers you need to most common questions.", 3000));
-    _Briefs.add(Brief( "assets/images/color3.png","Dialog presentation", _des, "Your sales aids, powerpoint and PDF presentations", 3000));
-    _Briefs.add(Brief( "assets/images/color2.png","XSL documents", _des, "Upcoming ASCO,ECCB and Spanish Breast Cancer Congress material", 3000));
-    _Briefs.add(Brief( "assets/images/color4.png","Publication", _des, "Pivotal Studies and abstracts about Kadcyla", 3000));
-    _Briefs.add(Brief( "assets/images/color3.png","My contacts", _des, "Princing, reimboursement pharmacea-econmics & acess", 3000));
-    _Briefs.add(Brief( "assets/images/color1.png","My contacts", _des, "Princing, reimboursement pharmacea-econmics & acess", 3000));
+    _Briefs.add(Brief("assets/images/color2.png", "My list Items", _des, "All the answers you need to most common questions.", 1));
+    _Briefs.add(Brief( "assets/images/color3.png","Dialog presentation", _des, "Your sales aids, powerpoint and PDF presentations", 2));
+    _Briefs.add(Brief( "assets/images/color2.png","XSL documents", _des, "Upcoming ASCO,ECCB and Spanish Breast Cancer Congress material", 3));
+    _Briefs.add(Brief( "assets/images/color4.png","Publication", _des, "Pivotal Studies and abstracts about Kadcyla", 4));
+    _Briefs.add(Brief( "assets/images/color3.png","My contacts", _des, "Princing, reimboursement pharmacea-econmics & acess", 5));
+    _Briefs.add(Brief( "assets/images/color1.png","My contacts", _des, "Princing, reimboursement pharmacea-econmics & acess", 1));
     super.initState();
   }
 
@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
       itemCount: _Briefs.length,
       itemBuilder: (BuildContext context,int index) {
         return BriefInfo( _Briefs[index].image,_Briefs[index].title, _Briefs[index].content,
-            _Briefs[index].description, _Briefs[index].quantity);
+            _Briefs[index].description, _Briefs[index].indicator);
       },
     );
   }
