@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-
 import 'brief/briefCase.dart';
+import 'package:window_size/window_size.dart';
+import 'dart:io';
 
 final List<int> _items = List<int>.generate(51, (int index) => index);
-const symColor = Color.fromARGB(255, 30, 77, 171);
+const symColor = Color(0xFF1e4cab);
 
-void main() => runApp(const AppBarApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowMaxSize(const Size(1280, 720));
+    setWindowMinSize(const Size(1280, 720));
+  }
+  runApp(const AppBarApp());
+}
 
 class AppBarApp extends StatelessWidget {
   const AppBarApp({super.key});
@@ -42,15 +51,19 @@ class _AppBarExampleState extends State<AppBarExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70.0), // here the desired height
+        preferredSize: const Size.fromHeight(80.0), // here the desired height
         child: AppBar(
-         actions:  [
-          IconButton(color:Colors.white,onPressed: () {
-            debugPrint("hello");
-          }, icon: const Icon(
-            Icons.info_outline,
-            ),
-          )],
+          actions: [
+            IconButton(
+              color: Colors.white,
+              onPressed: () {
+                debugPrint("hello");
+              },
+              icon: const Icon(
+                Icons.info_outline,
+              ),
+            )
+          ],
           title: const Text(
             'SYMMETRYK',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),

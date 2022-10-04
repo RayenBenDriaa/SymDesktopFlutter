@@ -29,7 +29,7 @@ class _HomeState extends State<Briefcase> {
     _Briefs.add(Brief( "assets/images/color2.png","XSL documents", _des, "Upcoming ASCO,ECCB and Spanish Breast Cancer Congress material", 3));
     _Briefs.add(Brief( "assets/images/color4.png","Publication", _des, "Pivotal Studies and abstracts about Kadcyla", 4));
     _Briefs.add(Brief( "assets/images/color3.png","My contacts", _des, "Princing, reimboursement pharmacea-econmics & acess", 5));
-    _Briefs.add(Brief( "assets/images/color1.png","My contacts", _des, "Princing, reimboursement pharmacea-econmics & acess", 1));
+    _Briefs.add(Brief( "assets/images/color1.png","My list Items", _des, "All the answers you need to most common questions.", 1));
     super.initState();
   }
 
@@ -39,7 +39,7 @@ class _HomeState extends State<Briefcase> {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         childAspectRatio: 2.75,
-        mainAxisSpacing: 350.0,
+        mainAxisSpacing: 300.0,
         crossAxisSpacing: 10.0,
       ),
       itemCount: _Briefs.length,

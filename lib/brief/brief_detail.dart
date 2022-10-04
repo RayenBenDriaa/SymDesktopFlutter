@@ -18,8 +18,8 @@ class BriefDetails extends StatefulWidget {
 class _BriefDetailsState extends State<BriefDetails> {
   late int _currentQuantity;
   double? scrolledUnderElevation;
-  final symColor = Color.fromARGB(255, 30, 77, 171);
-  final Color secondary= Color(0xFF6cd3cd);
+  final symColor = const Color(0xFF1e4cab);
+  final Color secondary= const Color(0xFF6cd3cd);
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _BriefDetailsState extends State<BriefDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70.0), // here the desired height
+        preferredSize: const Size.fromHeight(70.0), // here the desired height
         child: AppBar(
          actions:  [
           IconButton(color:Colors.white,onPressed: () {
@@ -66,46 +66,142 @@ class _BriefDetailsState extends State<BriefDetails> {
             Expanded(
             flex: 85,
             child: Container(
-                height: 685,
+                height: 610,
                 color: secondary,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    const Text('File One pdf'),
-                    const Text(
+                  children: const <Widget>[
+                    Text('File One pdf'),
+                    Text(
                         'File Two Pdf'),
-                    const Text('File three pdf'),
-                    const Text(
+                    Text('File three pdf'),
+                    Text(
                         'We will fight up close, seize the moment and stay in it'),
-                    const Text(
+                    Text(
                         'It’s either that or meet the business end of a bayonet'),
-                    const Text('The code word is ‘Rochambeau,’ dig me?'),
-                    Text('Rochambeau!',
-                        style: DefaultTextStyle.of(context)
-                            .style
-                            .apply(fontSizeFactor: 2.0)),
-                  ],
+                    Text('The code word is ‘Rochambeau,’ dig me?'),
+                   ],
                 ),
               ),
             ),
            Expanded(
               flex: 15,
               child: Container(
-                color: symColor,
-                child: Column(children: const [Text("test"), Text("test2")]),
-              ),
+                  color: symColor,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
+                          child: Image.asset(
+                            "assets/images/color4.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 20.0),
+                              child: const SizedBox(
+                                  child: Center(
+                                      child: Text("Dialog presentations",
+                                          textScaleFactor: 2))),
+                            ),
+                          ],
+                        )
+                      ]),
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
+                          child: Image.asset(
+                            "assets/images/color1.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 20.0),
+                              child: const SizedBox(
+                                  child: Center(
+                                      child: Text("My Contacts",
+                                          textScaleFactor: 2))),
+                            ),
+                          ],
+                        )
+                      ]),
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
+                          child: Image.asset(
+                            "assets/images/color3.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                  return const BriefDetails(
+                                      "XSL documents", "", "", 3);
+                                }));
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(top: 20.0),
+                                child: const SizedBox(
+                                    child: Center(
+                                        child: Text("XLS documents",
+                                            textScaleFactor: 2))),
+                              ),
+                            ),
+                          ],
+                        )
+                      ]),
+                       Stack(children: [
+                        SizedBox(
+                          width: 250,
+                          child: Image.asset(
+                            "assets/images/color2.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 20.0),
+                              child: const SizedBox(
+                                  child: Center(
+                                      child: Text("Publications",
+                                          textScaleFactor: 2))),
+                            ),
+                          ],
+                        )
+                      ])
+                      ],)),
             )
           ],
         );
       case 0:
-        return Text("one widget", style: const TextStyle(color: Colors.black),);
+        return const Text("one widget", style: TextStyle(color: Colors.black),);
       case 2:
-        return Text("two widget", style: const TextStyle(color: Colors.black),);
+        return const Text("two widget", style: TextStyle(color: Colors.black),);
       case 3:
-        return Text("three widget", style: const TextStyle(color: Colors.black),);
+        return const Text("three widget", style: TextStyle(color: Colors.black),);
       default:
-        return Text("default widget", style: const TextStyle(color: Colors.black),);
+        return const Text("default widget", style: TextStyle(color: Colors.black),);
     }
   }
 }
