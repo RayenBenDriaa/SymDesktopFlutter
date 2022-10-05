@@ -10,8 +10,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    setWindowMaxSize(const Size(1280, 720));
-    setWindowMinSize(const Size(1280, 720));
+    setWindowMaxSize(const Size(1280, 960));
+    setWindowMinSize(const Size(1280, 960));
   }
   runApp(const AppBarApp());
 }

@@ -30,17 +30,22 @@ class BriefInfo extends StatelessWidget {
               width: 1500,
               child: Image.asset(_image, fit: BoxFit.fill,),
             ),
-                Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(child: Text(_title,textScaleFactor: 2)),
-                const SizedBox(
-                  height: 10,
+              Container(
+                margin: const EdgeInsets.only(top: 70,left: 25,right: 20),
+                child: Column(
+                  children: [
+                    Center(child: Text(_title, textScaleFactor: 2)),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                        child: Text(
+                      _description,
+                      style: const TextStyle(fontStyle: FontStyle.italic),
+                    )),
+                  ],
                 ),
-                Center(child: Text(_description,style: const TextStyle(fontStyle:FontStyle.italic),)),
-              ],
-            )
+              )
            
             ],
           )),
