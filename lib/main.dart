@@ -1,9 +1,10 @@
+import 'package:briefcase/testRoutes.dart';
 import 'package:flutter/material.dart';
+
 import 'brief/briefCase.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io';
 
-final List<int> _items = List<int>.generate(51, (int index) => index);
 const symColor = Color(0xFF1e4cab);
 
 void main() {
@@ -22,6 +23,11 @@ class AppBarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        "/test": (BuildContext context) {
+          return const TestRouts();
+        },
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: Theme.of(context).textTheme.apply(
@@ -51,7 +57,7 @@ class _AppBarExampleState extends State<AppBarExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80.0), // here the desired height
+        preferredSize: const Size.fromHeight(70.0), // here the desired height
         child: AppBar(
           actions: [
             IconButton(
@@ -68,12 +74,33 @@ class _AppBarExampleState extends State<AppBarExample> {
             'SYMMETRYK',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          scrolledUnderElevation: scrolledUnderElevation,
           backgroundColor: symColor,
         ),
       ),
-      body: const Center(
-        child: Briefcase(),
+      body: Container(
+        height: double.infinity,
+        color: Colors.white,
+        child: Column(
+          children: <Widget>[
+            Container(
+                height: 851,
+                width: 1280,
+                child: MaterialApp(
+                    debugShowCheckedModeBanner: false,
+                    theme: ThemeData(
+                      textTheme: Theme.of(context).textTheme.apply(
+                            bodyColor: Colors.white,
+                            displayColor: Colors.white,
+                          ),
+                      colorSchemeSeed: const Color(0xff6750a4),
+                      useMaterial3: true,
+                    ),
+                    initialRoute: '/W1',
+                    routes: {
+                      '/W1': (context) => Briefcase(),
+                    })),
+          ],
+        ),
       ),
     );
   }

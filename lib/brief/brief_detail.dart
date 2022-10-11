@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BriefDetails extends StatefulWidget {
   
@@ -17,13 +18,16 @@ class BriefDetails extends StatefulWidget {
 
 class _BriefDetailsState extends State<BriefDetails> {
   late int _currentQuantity;
-  double? scrolledUnderElevation;
+  
   final Color symColor = const Color(0xFF1e4cab);
   final Color secondary= const Color(0xFF6cd3cd);
+  final Color itemsColor = const Color(0xFF8BCFD7);
   final Color presentationColor = const Color(0xFFF98163);
   final Color XLSdocColor= const Color(0xFFFCCF7A);
   final Color pubColor= const Color(0xFF75ACD8);
   final Color contactColor = const Color(0xFFCEEEE5);
+  String url = "https://www.fluttercampus.com";
+  
 
 
   @override
@@ -36,30 +40,12 @@ class _BriefDetailsState extends State<BriefDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70.0), // here the desired height
-        child: AppBar(
-         actions:  [
-          IconButton(color:Colors.white,onPressed: () {
-            debugPrint("hello");
-          }, icon: const Icon(
-            Icons.info_outline,
-            ),
-          )],
-          title: const Text(
-            'SYMMETRYK',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          scrolledUnderElevation: scrolledUnderElevation,
-          backgroundColor: symColor,
+    return Material(
+      child: Column(
+          children: [
+            conditionalWidget(widget._indicator),
+          ],
         ),
-      ),
-      body: Column(
-        children: [
-          conditionalWidget(widget._indicator),
-        ],
-      ),
     );
   }
   
@@ -72,19 +58,20 @@ class _BriefDetailsState extends State<BriefDetails> {
               flex: 85,
               child: Container(
                 height: 850,
-                color: secondary,
+                color:itemsColor ,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const <Widget>[
-                    Text('File One pdf'),
-                    Text('File Two Pdf'),
-                    Text('File three pdf'),
-                    Text(
-                        'We will fight up close, seize the moment and stay in it'),
-                    Text(
-                        'It’s either that or meet the business end of a bayonet'),
-                    Text('The code word is ‘Rochambeau,’ dig me?'),
+                  children: <Widget>[
+                    InkWell(onTap: () async {
+                    String url = "https://www.fluttercampus.com";
+                    var urllaunchable = await canLaunch(url); //canLaunch is from url_launcher package
+                    if(urllaunchable){
+                        await launch(url); //launch is from url_launcher package to launch URL
+                    }else{
+                       print("URL can't be launched.");
+                    }
+                  }, child: Text("Open FlutterCampus.com"),),
                   ],
                 ),
               ),

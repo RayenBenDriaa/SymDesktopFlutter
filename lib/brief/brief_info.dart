@@ -19,8 +19,7 @@ class BriefInfo extends StatelessWidget {
       color: Colors.white,
       child: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (BuildContext context) {
+           Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
               return BriefDetails(_title, _content, _description, _indicator);
             }));
           },
