@@ -34,43 +34,54 @@ class _HomeState extends State<Briefcase> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 10,left: 20,right: 20),
-          height: 560,
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio: 1.7,
-              mainAxisSpacing: 0.0,
-              crossAxisSpacing: 5.0,
-            ),
-            itemCount: 3,
-            itemBuilder: (BuildContext context,int index) {
-              return BriefInfo( _Briefs[index].image,_Briefs[index].title, _Briefs[index].content,
-                  _Briefs[index].description, _Briefs[index].indicator);
-            },
-          ),
+    return Stack(children: [
+      Container(
+        margin: const EdgeInsets.only(top: 200,left: 280,right: 20),
+        width: 680,
+        height: 500,
+        child: Image.asset(
+          "assets/images/fond_copy.png",
+          fit: BoxFit.fill,
         ),
-        Container(
-          height: 250,
-          margin: const EdgeInsets.only(top: 18,left: 20,right: 20),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 2.5,
-              mainAxisSpacing: 0.0,
-              crossAxisSpacing: 10.0,
+      ),
+      Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 10,left: 20,right: 20),
+            height: 560,
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 1.7,
+                mainAxisSpacing: 0.0,
+                crossAxisSpacing: 5.0,
+              ),
+              itemCount: 3,
+              itemBuilder: (BuildContext context,int index) {
+                return BriefInfo( _Briefs[index].image,_Briefs[index].title, _Briefs[index].content,
+                    _Briefs[index].description, _Briefs[index].indicator);
+              },
             ),
-            itemCount: 2,
-            itemBuilder: (BuildContext context,int index) {
-              return BriefInfo( _Briefs[index+3].image,_Briefs[index+3].title, _Briefs[index+3].content,
-                  _Briefs[index+3].description, _Briefs[index+3].indicator);
-            },
           ),
-        ),
-      ],
+          Container(
+            height: 250,
+            margin: const EdgeInsets.only(top: 18,left: 20,right: 20),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 2.5,
+                mainAxisSpacing: 0.0,
+                crossAxisSpacing: 10.0,
+              ),
+              itemCount: 2,
+              itemBuilder: (BuildContext context,int index) {
+                return BriefInfo( _Briefs[index+3].image,_Briefs[index+3].title, _Briefs[index+3].content,
+                    _Briefs[index+3].description, _Briefs[index+3].indicator);
+              },
+            ),
+          ),
+        ],
+      ),]
     );
   }
 }
