@@ -57,16 +57,79 @@ class _BriefDetailsState extends State<BriefDetails> {
             Expanded(
               flex: 85,
               child: Container(
-                height: 850,
+                margin: const EdgeInsets.only(top: 3),
+                height: 848,
                 color: itemsColor,
                 child: Column(children: [
-                  const SizedBox(
-                    width: 1500,
-                    height: 75,
-                    child: Text("My list items",style: TextStyle(fontSize: 40,),)
+                  Row(
+                    children: [
+                      Container(
+                         decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                          height: 80,
+                          child: IconButton(
+                            onPressed: () {
+                              
+                            },
+                            icon: const Icon(Icons.format_align_left),
+                            style: IconButton.styleFrom(
+                                foregroundColor: Colors.white),
+                          )),
+
+                      Container(
+                          margin: const EdgeInsets.only(top: 10),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                          width: 250,
+                          height: 70,
+                          child: const Text(
+                            "My list items",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w100
+                            ),
+                          )),
+                      Container(
+                         decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                          height: 80,
+                          child: IconButton(
+                            onPressed: () {
+                              debugPrint("i refreshed");
+                              setState(() {});
+                            },
+                            icon: const Icon(Icons.refresh_sharp),
+                            style: IconButton.styleFrom(
+                                foregroundColor: Colors.white),
+                          )),
+                      Container(
+                        margin: const EdgeInsets.only(top: 10),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                            bottom: BorderSide(color: Colors.white,style: BorderStyle.solid),
+                            ),
+                          ),
+                          height: 70,
+                          width: 740,
+                          child: const Text(
+                            "Refresh tile",
+                            style: TextStyle(fontWeight: FontWeight.w100,
+                              fontSize: 30,
+                            ),
+                          ))
+                    ],
                   ),
                   SizedBox(
-                    height: 770,
+                    height: 760,
                     child: ListView.builder(
                       itemCount: items.length,
                       itemBuilder: (context, index) {
