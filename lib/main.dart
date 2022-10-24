@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io';
 import 'brief/briefMain.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 const symColor = Color(0xFF1e4cab);
 
