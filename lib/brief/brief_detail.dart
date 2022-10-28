@@ -1,6 +1,8 @@
+import 'package:briefcase/icons/symicons.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:briefcase/icons/symicons.dart';
 
 class BriefDetails extends StatefulWidget {
   final String _title;
@@ -24,8 +26,6 @@ class _BriefDetailsState extends State<BriefDetails> {
   int? _selectedItem;
   late int _nextItem;
 
-
-
   final Color symColor = const Color(0xFF1e4cab);
   final Color secondary = const Color(0xFF6cd3cd);
   final Color itemsColor = const Color(0xFF8BCFD7);
@@ -45,7 +45,8 @@ class _BriefDetailsState extends State<BriefDetails> {
     );
     _nextItem = 4;
   }
-   Widget _buildItem(
+
+  Widget _buildItem(
       BuildContext context, int index, Animation<double> animation) {
     return CardItem(
       animation: animation,
@@ -58,6 +59,7 @@ class _BriefDetailsState extends State<BriefDetails> {
       },
     );
   }
+
   Widget _buildRemovedItem(
       int item, BuildContext context, Animation<double> animation) {
     return CardItem(
@@ -66,11 +68,13 @@ class _BriefDetailsState extends State<BriefDetails> {
       // No gesture detector here: we don't want removed items to be interactive.
     );
   }
+
   void _insert() {
     final int index =
         _selectedItem == null ? _list.length : _list.indexOf(_selectedItem!);
     _list.insert(index, _nextItem++);
   }
+
   void _remove() {
     if (_selectedItem != null) {
       _list.removeAt(_list.indexOf(_selectedItem!));
@@ -79,7 +83,6 @@ class _BriefDetailsState extends State<BriefDetails> {
       });
     }
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -108,21 +111,19 @@ class _BriefDetailsState extends State<BriefDetails> {
                   Row(
                     children: [
                       Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
                           child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.format_align_left),
+                            onPressed: () {},
+                            icon: const Icon(
+                                Symicons.Icons_hamburger_menu_icon_v2_120x120),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
-
                       Container(
                           margin: const EdgeInsets.only(top: 10),
                           padding: const EdgeInsets.only(top: 8),
@@ -136,126 +137,121 @@ class _BriefDetailsState extends State<BriefDetails> {
                           child: const Text(
                             "My list items",
                             style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w100
-                            ),
+                                fontSize: 30, fontWeight: FontWeight.w100),
                           )),
                       Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
                           child: IconButton(
                             onPressed: () {
                               debugPrint("i refreshed");
                               setState(() {});
                             },
-                            icon: const Icon(Icons.autorenew),
+                            icon:
+                                const Icon(Symicons.Icons_refresh_icon_120x120),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
                       Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        padding: const EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 8),
                           decoration: const BoxDecoration(
                             border: Border(
-                            bottom: BorderSide(color: Colors.white,style: BorderStyle.solid),
+                              bottom: BorderSide(
+                                  color: Colors.white,
+                                  style: BorderStyle.solid),
                             ),
                           ),
                           height: 70,
                           width: 300,
-                          
                           child: const Text(
                             "Refresh tile",
-                            style: TextStyle(fontWeight: FontWeight.w100,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w100,
                               fontSize: 30,
                             ),
                           )),
-                          
-                          Container(
-                            padding: const EdgeInsets.only(top: 8),
-                        margin: const EdgeInsets.only(top: 10),
+                      Container(
+                          padding: const EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 10),
                           decoration: const BoxDecoration(
                             border: Border(
-                            bottom: BorderSide(color: Colors.white,style: BorderStyle.solid),
+                              bottom: BorderSide(
+                                  color: Colors.white,
+                                  style: BorderStyle.solid),
                             ),
                           ),
                           height: 70,
-                          
                           child: const Text(
                             "Sort By",
-                            style: TextStyle(fontWeight: FontWeight.w100,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w100,
                               fontSize: 30,
                             ),
                           )),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                      Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
-                         
                           child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.keyboard_arrow_down),
+                            onPressed: () {},
+                            icon: const Icon(
+                                Symicons.Icons_small_bottom_arrow_icon_120x120),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
-                          Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          width: 150,
-                         
-                          ), 
-                          Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        width: 150,
+                      ),
+                      Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
                           child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.format_align_left),
+                            onPressed: () {},
+                            icon: const Icon(
+                                Symicons.Icons_hamburger_menu_icon_v2_120x120),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                      Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
                           child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.apps),
+                            onPressed: () {},
+                            icon: const Icon(Symicons.Icons_297),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          width: 10,
-                         
-                          ), 
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        width: 10,
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -310,6 +306,39 @@ class _BriefDetailsState extends State<BriefDetails> {
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
+                          height: 100,
+                          child: Image.asset(
+                            "assets/images/colortitle.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                  return const BriefDetails(
+                                      "My list Items", "", "", 1);
+                                }));
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(top: 20.0),
+                                child: const SizedBox(
+                                    child: Center(
+                                        child: Text("My list Items",
+                                            textScaleFactor: 2))),
+                              ),
+                            ),
+                          ],
+                        )
+                      ]),
                       Stack(children: [
                         SizedBox(
                           width: 250,
@@ -437,7 +466,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                             ),
                           ],
                         )
-                      ])
+                      ]),
+                      Stack(children: [
+                        Container(
+                          width: 250,
+                          height: 289,
+                          color: Colors.white,
+                        ),
+                      ]),
                     ],
                   )),
             )
@@ -455,9 +491,7 @@ class _BriefDetailsState extends State<BriefDetails> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const <Widget>[
-                    Text("Helloo publications")
-                  ],
+                  children: const <Widget>[Text("Helloo contact")],
                 ),
               ),
             ),
@@ -505,15 +539,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/colorpresentation.png",
                             fit: BoxFit.fill,
                           ),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InkWell(
                               onTap: () {
@@ -521,14 +554,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                                     MaterialPageRoute(
                                         builder: (BuildContext context) {
                                   return const BriefDetails(
-                                      "Dialog presentation", "", "", 2);
+                                      "Dialog presentations", "", "", 2);
                                 }));
                               },
                               child: Container(
                                 margin: const EdgeInsets.only(top: 20.0),
                                 child: const SizedBox(
                                     child: Center(
-                                        child: Text("Dialog presentation",
+                                        child: Text("Dialog presentations",
                                             textScaleFactor: 2))),
                               ),
                             ),
@@ -538,15 +571,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/coloryellow.png",
                             fit: BoxFit.fill,
                           ),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InkWell(
                               onTap: () {
@@ -571,7 +603,6 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/colorpub.png",
                             fit: BoxFit.fill,
@@ -600,7 +631,46 @@ class _BriefDetailsState extends State<BriefDetails> {
                             ),
                           ],
                         )
-                      ])
+                      ]),
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
+                          child: Image.asset(
+                            "assets/images/colorcontact.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                  return const BriefDetails(
+                                      "My contacts", "", "", 0);
+                                }));
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(top: 20.0),
+                                child: const SizedBox(
+                                    child: Center(
+                                        child: Text("My contacts",
+                                            textScaleFactor: 2))),
+                              ),
+                            ),
+                          ],
+                        )
+                      ]),
+                      Stack(children: [
+                        Container(
+                          width: 250,
+                          height: 289,
+                          color: Colors.white,
+                        ),
+                      ]),
                     ],
                   )),
             )
@@ -612,166 +682,160 @@ class _BriefDetailsState extends State<BriefDetails> {
             Expanded(
               flex: 85,
               child: Container(
-                height: 848,
-                margin: const EdgeInsets.only(top: 3),
-                color: presentationColor,
-                //lock2
-                child: Column(children: [
-                  Row(
+                  height: 848,
+                  margin: const EdgeInsets.only(top: 3),
+                  color: presentationColor,
+                  //lock2
+                  child: Column(
                     children: [
-                      Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.format_align_left),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-
-                      Container(
-                           
-                          margin: const EdgeInsets.only(top: 10),
-                          padding: const EdgeInsets.only(top: 8),
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.white),
-                            ),
-                          ),
-                          width: 324,
-                          height: 70,
-                          child: const Text(
-                            "Dialog presentations",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w100
-                            ),
-                          )),
-                      Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {
-                              debugPrint("i refreshed");
-                              setState(() {});
-                            },
-                            icon: const Icon(Icons.autorenew),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                      Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        padding: const EdgeInsets.only(top: 8),
-                          decoration: const BoxDecoration(
-                            border: Border(
-                            bottom: BorderSide(color: Colors.white,style: BorderStyle.solid),
-                            ),
-                          ),
-                          height: 70,
-                          width: 300,
-                          
-                          child: const Text(
-                            "Refresh tile",
-                            style: TextStyle(fontWeight: FontWeight.w100,
-                              fontSize: 30,
-                            ),
-                          )),
-                          
+                      Row(
+                        children: [
                           Container(
-                            padding: const EdgeInsets.only(top: 8),
-                        margin: const EdgeInsets.only(top: 10),
-                          decoration: const BoxDecoration(
-                            border: Border(
-                            bottom: BorderSide(color: Colors.white,style: BorderStyle.solid),
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                              height: 80,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Symicons
+                                    .Icons_hamburger_menu_icon_v2_120x120),
+                                style: IconButton.styleFrom(
+                                    foregroundColor: Colors.white),
+                              )),
+                          Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              padding: const EdgeInsets.only(top: 8),
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                              width: 324,
+                              height: 70,
+                              child: const Text(
+                                "Dialog presentations",
+                                style: TextStyle(
+                                    fontSize: 30, fontWeight: FontWeight.w100),
+                              )),
+                          Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                              height: 80,
+                              child: IconButton(
+                                onPressed: () {
+                                  debugPrint("i refreshed");
+                                  setState(() {});
+                                },
+                                icon: const Icon(
+                                    Symicons.Icons_refresh_icon_120x120),
+                                style: IconButton.styleFrom(
+                                    foregroundColor: Colors.white),
+                              )),
+                          Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              padding: const EdgeInsets.only(top: 8),
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: Colors.white,
+                                      style: BorderStyle.solid),
+                                ),
+                              ),
+                              height: 70,
+                              width: 300,
+                              child: const Text(
+                                "Refresh tile",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w100,
+                                  fontSize: 30,
+                                ),
+                              )),
+                          Container(
+                              padding: const EdgeInsets.only(top: 8),
+                              margin: const EdgeInsets.only(top: 10),
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: Colors.white,
+                                      style: BorderStyle.solid),
+                                ),
+                              ),
+                              height: 70,
+                              child: const Text(
+                                "Sort By",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w100,
+                                  fontSize: 30,
+                                ),
+                              )),
+                          Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                              height: 80,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Symicons
+                                    .Icons_small_bottom_arrow_icon_120x120),
+                                style: IconButton.styleFrom(
+                                    foregroundColor: Colors.white),
+                              )),
+                          Container(
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(color: Colors.white),
+                              ),
                             ),
+                            height: 80,
+                            width: 150,
                           ),
-                          height: 70,
-                          
-                          child: const Text(
-                            "Sort By",
-                            style: TextStyle(fontWeight: FontWeight.w100,
-                              fontSize: 30,
+                          Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                              height: 80,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Symicons
+                                    .Icons_hamburger_menu_icon_v2_120x120),
+                                style: IconButton.styleFrom(
+                                    foregroundColor: Colors.white),
+                              )),
+                          Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: Colors.white),
+                                ),
+                              ),
+                              height: 80,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Symicons.Icons_297),
+                                style: IconButton.styleFrom(
+                                    foregroundColor: Colors.white),
+                              )),
+                          Container(
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(color: Colors.white),
+                              ),
                             ),
-                          )),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                         
-                          child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.keyboard_arrow_down),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                          Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          width: 150,
-                         
-                          ), 
-                          Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.format_align_left),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.apps),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          width: 10,
-                         
-                          ), 
+                            height: 80,
+                            width: 10,
+                          ),
+                        ],
+                      )
                     ],
-                  )],)
-              ),
+                  )),
             ),
             Expanded(
               flex: 15,
@@ -817,15 +881,46 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
+                          child: Image.asset(
+                            "assets/images/colorpresentation.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                  return const BriefDetails(
+                                      "Dialog presentations", "", "", 2);
+                                }));
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(top: 20.0),
+                                child: const SizedBox(
+                                    child: Center(
+                                        child: Text("Dialog presentations",
+                                            textScaleFactor: 2))),
+                              ),
+                            ),
+                          ],
+                        )
+                      ]),
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
                           child: Image.asset(
                             "assets/images/coloryellow.png",
                             fit: BoxFit.fill,
                           ),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InkWell(
                               onTap: () {
@@ -850,7 +945,6 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/colorpub.png",
                             fit: BoxFit.fill,
@@ -883,7 +977,6 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/colorcontact.png",
                             fit: BoxFit.fill,
@@ -912,7 +1005,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                             ),
                           ],
                         )
-                      ])
+                      ]),
+                      Stack(children: [
+                        Container(
+                          width: 250,
+                          height: 289,
+                          color: Colors.white,
+                        ),
+                      ]),
                     ],
                   )),
             )
@@ -927,27 +1027,25 @@ class _BriefDetailsState extends State<BriefDetails> {
                 height: 848,
                 margin: const EdgeInsets.only(top: 3),
                 color: XLSdocColor,
-                child:  Column(children: [
+                child: Column(children: [
                   Row(
                     children: [
                       Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
                           child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.format_align_left),
+                            onPressed: () {},
+                            icon: const Icon(
+                                Symicons.Icons_hamburger_menu_icon_v2_120x120),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
 
                       Container(
-                           
                           margin: const EdgeInsets.only(top: 10),
                           padding: const EdgeInsets.only(top: 8),
                           decoration: const BoxDecoration(
@@ -960,137 +1058,136 @@ class _BriefDetailsState extends State<BriefDetails> {
                           child: const Text(
                             "XLS Documents",
                             style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w100
-                            ),
+                                fontSize: 30, fontWeight: FontWeight.w100),
                           )),
                       Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
                           child: IconButton(
                             onPressed: () {
                               debugPrint("i refreshed");
                               setState(() {});
                             },
-                            icon: const Icon(Icons.autorenew),
+                            icon:
+                                const Icon(Symicons.Icons_refresh_icon_120x120),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
                       Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        padding: const EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 8),
                           decoration: const BoxDecoration(
                             border: Border(
-                            bottom: BorderSide(color: Colors.white,style: BorderStyle.solid),
+                              bottom: BorderSide(
+                                  color: Colors.white,
+                                  style: BorderStyle.solid),
                             ),
                           ),
                           height: 70,
                           width: 300,
-                          
                           child: const Text(
                             "Refresh tile",
-                            style: TextStyle(fontWeight: FontWeight.w100,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w100,
                               fontSize: 30,
                             ),
                           )),
-                          
-                          Container(
-                            padding: const EdgeInsets.only(top: 8),
-                        margin: const EdgeInsets.only(top: 10),
+
+                      Container(
+                          padding: const EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 10),
                           decoration: const BoxDecoration(
                             border: Border(
-                            bottom: BorderSide(color: Colors.white,style: BorderStyle.solid),
+                              bottom: BorderSide(
+                                  color: Colors.white,
+                                  style: BorderStyle.solid),
                             ),
                           ),
                           height: 70,
-                          
                           child: const Text(
                             "Sort By",
-                            style: TextStyle(fontWeight: FontWeight.w100,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w100,
                               fontSize: 30,
                             ),
                           )),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
+                      Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(color: Colors.white),
+                            ),
+                          ),
                           height: 80,
-                         
                           child: IconButton(
-                            onPressed: () {
-                              
-                            },
-                            icon: const Icon(Icons.keyboard_arrow_down),
+                            onPressed: () {},
+                            icon: const Icon(
+                                Symicons.Icons_small_bottom_arrow_icon_120x120),
                             style: IconButton.styleFrom(
                                 foregroundColor: Colors.white),
                           )),
-                          Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          width: 150,
-                         
-                          ), 
-                          Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          child:  IconButton(
-              icon: const Icon(Icons.add_circle),
-              onPressed: _insert,
-              tooltip: 'insert a new item',
-            ),),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          child: IconButton(
-              icon: const Icon(Icons.remove_circle),
-              onPressed: _remove,
-              tooltip: 'remove the selected item',
-            ),),
-                             Container(
-                         decoration: const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(color: Colors.white),
-                                ),
-                              ),
-                          height: 80,
-                          width: 10,
-                         ),
-                         //listfor3
-                          
-                          
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        width: 150,
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        child: IconButton(
+                          icon: const Icon(Icons.add_circle),
+                          onPressed: _insert,
+                          tooltip: 'insert a new item',
+                        ),
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        child: IconButton(
+                          icon: const Icon(Icons.remove_circle),
+                          onPressed: _remove,
+                          tooltip: 'remove the selected item',
+                        ),
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        width: 10,
+                      ),
+                      //listfor3
                     ],
                   ),
                   SizedBox(
                     height: 760,
                     child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: AnimatedList(
-            key: _listKey,
-            initialItemCount: _list.length,
-            itemBuilder: _buildItem,
-          ),
-        ),
-
+                      padding: const EdgeInsets.all(16.0),
+                      child: AnimatedList(
+                        key: _listKey,
+                        initialItemCount: _list.length,
+                        itemBuilder: _buildItem,
+                      ),
+                    ),
                   )
-                  ]),
+                ]),
               ),
             ),
             Expanded(
@@ -1137,15 +1234,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/colorpresentation.png",
                             fit: BoxFit.fill,
                           ),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InkWell(
                               onTap: () {
@@ -1153,14 +1249,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                                     MaterialPageRoute(
                                         builder: (BuildContext context) {
                                   return const BriefDetails(
-                                      "Dialog presentation", "", "", 2);
+                                      "Dialog presentations", "", "", 2);
                                 }));
                               },
                               child: Container(
                                 margin: const EdgeInsets.only(top: 20.0),
                                 child: const SizedBox(
                                     child: Center(
-                                        child: Text("Dialog presentation",
+                                        child: Text("Dialog presentations",
                                             textScaleFactor: 2))),
                               ),
                             ),
@@ -1170,7 +1266,38 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
+                          child: Image.asset(
+                            "assets/images/coloryellow.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                  return const BriefDetails(
+                                      "XLS documents", "", "", 3);
+                                }));
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(top: 20.0),
+                                child: const SizedBox(
+                                    child: Center(
+                                        child: Text("XLS documents",
+                                            textScaleFactor: 2))),
+                              ),
+                            ),
+                          ],
+                        )
+                      ]),
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
                           child: Image.asset(
                             "assets/images/colorpub.png",
                             fit: BoxFit.fill,
@@ -1203,7 +1330,6 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/colorcontact.png",
                             fit: BoxFit.fill,
@@ -1232,7 +1358,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                             ),
                           ],
                         )
-                      ])
+                      ]),
+                      Stack(children: [
+                        Container(
+                          width: 250,
+                          height: 289,
+                          color: Colors.white,
+                        ),
+                      ]),
                     ],
                   )),
             )
@@ -1298,15 +1431,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/colorpresentation.png",
                             fit: BoxFit.fill,
                           ),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InkWell(
                               onTap: () {
@@ -1314,14 +1446,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                                     MaterialPageRoute(
                                         builder: (BuildContext context) {
                                   return const BriefDetails(
-                                      "Dialog presentation", "", "", 2);
+                                      "Dialog presentations", "", "", 2);
                                 }));
                               },
                               child: Container(
                                 margin: const EdgeInsets.only(top: 20.0),
                                 child: const SizedBox(
                                     child: Center(
-                                        child: Text("Dialog presentation",
+                                        child: Text("Dialog presentations",
                                             textScaleFactor: 2))),
                               ),
                             ),
@@ -1331,15 +1463,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
                           child: Image.asset(
                             "assets/images/coloryellow.png",
                             fit: BoxFit.fill,
                           ),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InkWell(
                               onTap: () {
@@ -1364,7 +1495,38 @@ class _BriefDetailsState extends State<BriefDetails> {
                       Stack(children: [
                         SizedBox(
                           width: 250,
-                          height: 100,
+                          child: Image.asset(
+                            "assets/images/colorpub.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                  return const BriefDetails(
+                                      "Publications", "", "", 4);
+                                }));
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(top: 20.0),
+                                child: const SizedBox(
+                                    child: Center(
+                                        child: Text("Publications",
+                                            textScaleFactor: 2))),
+                              ),
+                            ),
+                          ],
+                        )
+                      ]),
+                      Stack(children: [
+                        SizedBox(
+                          width: 250,
                           child: Image.asset(
                             "assets/images/colorcontact.png",
                             fit: BoxFit.fill,
@@ -1393,7 +1555,14 @@ class _BriefDetailsState extends State<BriefDetails> {
                             ),
                           ],
                         )
-                      ])
+                      ]),
+                      Stack(children: [
+                        Container(
+                          width: 250,
+                          height: 289,
+                          color: Colors.white,
+                        ),
+                      ]),
                     ],
                   )),
             )
@@ -1407,9 +1576,11 @@ class _BriefDetailsState extends State<BriefDetails> {
     }
   }
 }
+
 typedef RemovedItemBuilder<T> = Widget Function(
     T item, BuildContext context, Animation<double> animation);
-    class ListModel<E> {
+
+class ListModel<E> {
   ListModel({
     required this.listKey,
     required this.removedItemBuilder,

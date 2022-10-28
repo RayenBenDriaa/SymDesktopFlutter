@@ -1,3 +1,4 @@
+import 'package:briefcase/icons/symicons.dart';
 import 'package:flutter/material.dart';
 
 import 'brief_detail.dart';
@@ -8,6 +9,7 @@ class BriefInfo extends StatelessWidget {
   final String _description;
   final int _indicator;
   final String _image;
+  
 
 
   BriefInfo(
@@ -19,18 +21,27 @@ class BriefInfo extends StatelessWidget {
       color: Colors.white,
       child: InkWell(
           onTap: () {
-           Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (BuildContext context) {
               return BriefDetails(_title, _content, _description, _indicator);
             }));
           },
           child: Stack(
             children: [
               SizedBox(
-              width: 1500,
-              child: Image.asset(_image, fit: BoxFit.fill,),
-            ),
+                width: 1500,
+                child: Image.asset(
+                  _image,
+                  fit: BoxFit.fill,
+                ),
+              ),
+                const SizedBox(
+                width: 1500,
+                height: 500,
+                child: Icon(Symicons.Icons_297)
+              ),
               Container(
-                margin: const EdgeInsets.only(top: 70,left: 25,right: 20),
+                margin: const EdgeInsets.only(top: 70, left: 25, right: 20),
                 child: Column(
                   children: [
                     Center(child: Text(_title, textScaleFactor: 2)),
@@ -45,7 +56,6 @@ class BriefInfo extends StatelessWidget {
                   ],
                 ),
               )
-           
             ],
           )),
     );
