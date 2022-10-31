@@ -69,7 +69,7 @@ class _BriefMain extends State<BriefMain> {
                       switch (settings.name) {
                         case '/briefback':
                           return MaterialPageRoute(
-                              builder: (context) => Briefcase());
+                              builder: (context) => const Briefcase());
 
                         default:
                           return null;

@@ -1,7 +1,7 @@
 import 'package:briefcase/icons/symicons.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:briefcase/icons/symicons.dart';
 
 class BriefDetails extends StatefulWidget {
@@ -89,7 +89,192 @@ class _BriefDetailsState extends State<BriefDetails> {
     return Material(
       child: Column(
         children: [
-          conditionalWidget(widget._indicator),
+          Row(
+            children: [
+              Expanded(
+                  flex: 85,
+                  child: SizedBox(child: conditionalWidget(widget._indicator))),
+              Expanded(
+                flex: 15,
+                child: Container(
+                    color: symColor,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Stack(children: [
+                          SizedBox(
+                            width: 250,
+                            height: 100,
+                            child: Image.asset(
+                              "assets/images/colortitle.png",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushReplacement(context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
+                                    return const BriefDetails(
+                                        "My list Items", "", "", 1);
+                                  }));
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.only(top: 20.0),
+                                  child: const SizedBox(
+                                      child: Center(
+                                          child: Text("My list Items",
+                                              textScaleFactor: 2))),
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                        Stack(children: [
+                          SizedBox(
+                            width: 250,
+                            child: Image.asset(
+                              "assets/images/colorpresentation.png",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushReplacement(context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
+                                    return const BriefDetails(
+                                        "Dialog presentations", "", "", 2);
+                                  }));
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.only(top: 20.0),
+                                  child: const SizedBox(
+                                      child: Center(
+                                          child: Text("Dialog presentations",
+                                              textScaleFactor: 2))),
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                        Stack(children: [
+                          SizedBox(
+                            width: 250,
+                            child: Image.asset(
+                              "assets/images/coloryellow.png",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushReplacement(context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
+                                    return const BriefDetails(
+                                        "XLS documents", "", "", 3);
+                                  }));
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.only(top: 20.0),
+                                  child: const SizedBox(
+                                      child: Center(
+                                          child: Text("XLS documents",
+                                              textScaleFactor: 2))),
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                        Stack(children: [
+                          SizedBox(
+                            width: 250,
+                            child: Image.asset(
+                              "assets/images/colorpub.png",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushReplacement(context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
+                                    return const BriefDetails(
+                                        "Publications", "", "", 4);
+                                  }));
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.only(top: 20.0),
+                                  child: const SizedBox(
+                                      child: Center(
+                                          child: Text("Publications",
+                                              textScaleFactor: 2))),
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                        Stack(children: [
+                          SizedBox(
+                            width: 250,
+                            child: Image.asset(
+                              "assets/images/colorcontact.png",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushReplacement(context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
+                                    return const BriefDetails(
+                                        "My contacts", "", "", 0);
+                                  }));
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.only(top: 20.0),
+                                  child: const SizedBox(
+                                      child: Center(
+                                          child: Text("My contacts",
+                                              textScaleFactor: 2))),
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                        Stack(children: [
+                          Container(
+                            width: 250,
+                            height: 289,
+                            color: Colors.white,
+                          ),
+                        ]),
+                      ],
+                    )),
+              )
+            ],
+          ),
         ],
       ),
     );
@@ -98,393 +283,203 @@ class _BriefDetailsState extends State<BriefDetails> {
   Widget conditionalWidget(int indicatorIndex) {
     switch (indicatorIndex) {
       case 1:
-        return Row(
-          children: [
-            Expanded(
-              flex: 85,
-              child: Container(
-                margin: const EdgeInsets.only(top: 3),
-                height: 848,
-                color: itemsColor,
-                //lock1
-                child: Column(children: [
-                  Row(
-                    children: [
-                      Container(
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.white),
-                            ),
-                          ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                                Symicons.Icons_hamburger_menu_icon_v2_120x120),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                      Container(
-                          margin: const EdgeInsets.only(top: 10),
-                          padding: const EdgeInsets.only(top: 8),
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.white),
-                            ),
-                          ),
-                          width: 324,
-                          height: 70,
-                          child: const Text(
-                            "My list items",
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.w100),
-                          )),
-                      Container(
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.white),
-                            ),
-                          ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {
-                              debugPrint("i refreshed");
-                              setState(() {});
-                            },
-                            icon:
-                                const Icon(Symicons.Icons_refresh_icon_120x120),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                      Container(
-                          margin: const EdgeInsets.only(top: 10),
-                          padding: const EdgeInsets.only(top: 8),
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: Colors.white,
-                                  style: BorderStyle.solid),
-                            ),
-                          ),
-                          height: 70,
-                          width: 300,
-                          child: const Text(
-                            "Refresh tile",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w100,
-                              fontSize: 30,
-                            ),
-                          )),
-                      Container(
-                          padding: const EdgeInsets.only(top: 8),
-                          margin: const EdgeInsets.only(top: 10),
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: Colors.white,
-                                  style: BorderStyle.solid),
-                            ),
-                          ),
-                          height: 70,
-                          child: const Text(
-                            "Sort By",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w100,
-                              fontSize: 30,
-                            ),
-                          )),
-                      Container(
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.white),
-                            ),
-                          ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                                Symicons.Icons_small_bottom_arrow_icon_120x120),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                      Container(
+        return Container(
+              margin: const EdgeInsets.only(top: 3),
+              height: 848,
+              color: itemsColor,
+              //lock1
+              child: Column(children: [
+                Row(
+                  children: [
+                    Container(
                         decoration: const BoxDecoration(
                           border: Border(
                             bottom: BorderSide(color: Colors.white),
                           ),
                         ),
                         height: 80,
-                        width: 150,
-                      ),
-                      Container(
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.white),
-                            ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                              Symicons.Icons_hamburger_menu_icon_v2_120x120),
+                          style: IconButton.styleFrom(
+                              foregroundColor: Colors.white),
+                        )),
+                    Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 8),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
                           ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                                Symicons.Icons_hamburger_menu_icon_v2_120x120),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                      Container(
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(color: Colors.white),
-                            ),
-                          ),
-                          height: 80,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Symicons.Icons_297),
-                            style: IconButton.styleFrom(
-                                foregroundColor: Colors.white),
-                          )),
-                      Container(
+                        ),
+                        width: 324,
+                        height: 70,
+                        child: const Text(
+                          "My list items",
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.w100),
+                        )),
+                    Container(
                         decoration: const BoxDecoration(
                           border: Border(
                             bottom: BorderSide(color: Colors.white),
                           ),
                         ),
                         height: 80,
-                        width: 10,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 760,
-                    child: ListView.builder(
-                      itemCount: items.length,
-                      itemBuilder: (context, index) {
-                        final item = items[index];
-
-                        return Dismissible(
-                          // Each Dismissible must contain a Key. Keys allow Flutter to
-                          // uniquely identify widgets.
-                          key: Key(item),
-                          // Provide a function that tells the app
-                          // what to do after an item has been swiped away.
-                          onDismissed: (direction) {
-                            // Remove the item from the data source.
-                            setState(() {
-                              items.removeAt(index);
-                            });
-
-                            // Then show a snackbar.
+                        child: IconButton(
+                          onPressed: () {
+                            debugPrint("i refreshed");
+                            setState(() {});
                           },
-                          // Show a red background as the item is swiped away.
-                          background: Container(color: Colors.red),
-                          child: InkWell(
-                            onTap: () async {
-                              String url = "https://www.fluttercampus.com";
-                              var urllaunchable = await canLaunch(
-                                  url); //canLaunch is from url_launcher package
-                              if (urllaunchable) {
-                                await launch(
-                                    url); //launch is from url_launcher package to launch URL
-                              } else {
-                                print("URL can't be launched.");
-                              }
-                            },
-                            child: Text("Open FlutterCampus.com"),
+                          icon:
+                              const Icon(Symicons.Icons_refresh_icon_120x120),
+                          style: IconButton.styleFrom(
+                              foregroundColor: Colors.white),
+                        )),
+                    Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 8),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                                color: Colors.white,
+                                style: BorderStyle.solid),
                           ),
-                        );
-                      },
+                        ),
+                        height: 70,
+                        width: 300,
+                        child: const Text(
+                          "Refresh tile",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w100,
+                            fontSize: 30,
+                          ),
+                        )),
+                    Container(
+                        padding: const EdgeInsets.only(top: 8),
+                        margin: const EdgeInsets.only(top: 10),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                                color: Colors.white,
+                                style: BorderStyle.solid),
+                          ),
+                        ),
+                        height: 70,
+                        child: const Text(
+                          "Sort By",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w100,
+                            fontSize: 30,
+                          ),
+                        )),
+                    Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                              Symicons.Icons_small_bottom_arrow_icon_120x120),
+                          style: IconButton.styleFrom(
+                              foregroundColor: Colors.white),
+                        )),
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: Colors.white),
+                        ),
+                      ),
+                      height: 80,
+                      width: 150,
                     ),
+                    Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                              Symicons.Icons_hamburger_menu_icon_v2_120x120),
+                          style: IconButton.styleFrom(
+                              foregroundColor: Colors.white),
+                        )),
+                    Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(color: Colors.white),
+                          ),
+                        ),
+                        height: 80,
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Symicons.Icons_297),
+                          style: IconButton.styleFrom(
+                              foregroundColor: Colors.white),
+                        )),
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(color: Colors.white),
+                        ),
+                      ),
+                      height: 80,
+                      width: 10,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 760,
+                  child: ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      final item = items[index];
+
+                      return Dismissible(
+                        // Each Dismissible must contain a Key. Keys allow Flutter to
+                        // uniquely identify widgets.
+                        key: Key(item),
+                        // Provide a function that tells the app
+                        // what to do after an item has been swiped away.
+                        onDismissed: (direction) {
+                          // Remove the item from the data source.
+                          setState(() {
+                            items.removeAt(index);
+                          });
+
+                          // Then show a snackbar.
+                        },
+                        // Show a red background as the item is swiped away.
+                        background: Container(color: Colors.red),
+                        child: InkWell(
+                          onTap: () async {
+                            String url = "https://www.fluttercampus.com";
+                            var urllaunchable = await canLaunch(
+                                url); //canLaunch is from url_launcher package
+                            if (urllaunchable) {
+                              await launch(
+                                  url); //launch is from url_launcher package to launch URL
+                            } else {
+                              print("URL can't be launched.");
+                            }
+                          },
+                          child: Text("Open FlutterCampus.com"),
+                        ),
+                      );
+                    },
                   ),
-                ]),
-              ),
-            ),
-            Expanded(
-              flex: 15,
-              child: Container(
-                  color: symColor,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          height: 100,
-                          child: Image.asset(
-                            "assets/images/colortitle.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My list Items", "", "", 1);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My list Items",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpresentation.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Dialog presentations", "", "", 2);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Dialog presentations",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/coloryellow.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "XLS documents", "", "", 3);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("XLS documents",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpub.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Publications", "", "", 4);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Publications",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorcontact.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My contacts", "", "", 0);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My contacts",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        Container(
-                          width: 250,
-                          height: 289,
-                          color: Colors.white,
-                        ),
-                      ]),
-                    ],
-                  )),
-            )
-          ],
-        );
-      case 0:
-        return Row(
-          children: [
-            Expanded(
-              flex: 85,
-              child: Container(
+                ),
+              ]),
+            );
+       case 0:
+        return  Container(
                 height: 848,
                 margin: const EdgeInsets.only(top: 3),
                 color: contactColor,
@@ -493,195 +488,9 @@ class _BriefDetailsState extends State<BriefDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const <Widget>[Text("Helloo contact")],
                 ),
-              ),
-            ),
-            Expanded(
-              flex: 15,
-              child: Container(
-                  color: symColor,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          height: 100,
-                          child: Image.asset(
-                            "assets/images/colortitle.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My list Items", "", "", 1);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My list Items",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpresentation.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Dialog presentations", "", "", 2);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Dialog presentations",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/coloryellow.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "XLS documents", "", "", 3);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("XLS documents",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpub.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Publications", "", "", 4);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Publications",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorcontact.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My contacts", "", "", 0);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My contacts",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        Container(
-                          width: 250,
-                          height: 289,
-                          color: Colors.white,
-                        ),
-                      ]),
-                    ],
-                  )),
-            )
-          ],
-        );
+              );
       case 2:
-        return Row(
-          children: [
-            Expanded(
-              flex: 85,
-              child: Container(
+        return Container(
                   height: 848,
                   margin: const EdgeInsets.only(top: 3),
                   color: presentationColor,
@@ -835,195 +644,10 @@ class _BriefDetailsState extends State<BriefDetails> {
                         ],
                       )
                     ],
-                  )),
-            ),
-            Expanded(
-              flex: 15,
-              child: Container(
-                  color: symColor,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          height: 100,
-                          child: Image.asset(
-                            "assets/images/colortitle.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My list Items", "", "", 1);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My list Items",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpresentation.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Dialog presentations", "", "", 2);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Dialog presentations",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/coloryellow.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "XLS documents", "", "", 3);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("XLS documents",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpub.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Publications", "", "", 4);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Publications",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorcontact.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My contacts", "", "", 0);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My contacts",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        Container(
-                          width: 250,
-                          height: 289,
-                          color: Colors.white,
-                        ),
-                      ]),
-                    ],
-                  )),
-            )
-          ],
-        );
+                  ));
+            
       case 3:
-        return Row(
-          children: [
-            Expanded(
-              flex: 85,
-              child: Container(
+        return Container(
                 height: 848,
                 margin: const EdgeInsets.only(top: 3),
                 color: XLSdocColor,
@@ -1188,195 +812,9 @@ class _BriefDetailsState extends State<BriefDetails> {
                     ),
                   )
                 ]),
-              ),
-            ),
-            Expanded(
-              flex: 15,
-              child: Container(
-                  color: symColor,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          height: 100,
-                          child: Image.asset(
-                            "assets/images/colortitle.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My list Items", "", "", 1);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My list Items",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpresentation.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Dialog presentations", "", "", 2);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Dialog presentations",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/coloryellow.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "XLS documents", "", "", 3);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("XLS documents",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpub.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Publications", "", "", 4);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Publications",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorcontact.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My contacts", "", "", 0);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My contacts",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        Container(
-                          width: 250,
-                          height: 289,
-                          color: Colors.white,
-                        ),
-                      ]),
-                    ],
-                  )),
-            )
-          ],
-        );
+              );
       case 4:
-        return Row(
-          children: [
-            Expanded(
-              flex: 85,
-              child: Container(
+        return Container(
                 height: 848,
                 margin: const EdgeInsets.only(top: 3),
                 color: pubColor,
@@ -1385,189 +823,9 @@ class _BriefDetailsState extends State<BriefDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const <Widget>[],
                 ),
-              ),
-            ),
-            Expanded(
-              flex: 15,
-              child: Container(
-                  color: symColor,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          height: 100,
-                          child: Image.asset(
-                            "assets/images/colortitle.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My list Items", "", "", 1);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My list Items",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpresentation.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Dialog presentations", "", "", 2);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Dialog presentations",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/coloryellow.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "XLS documents", "", "", 3);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("XLS documents",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorpub.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "Publications", "", "", 4);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("Publications",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        SizedBox(
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/colorcontact.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) {
-                                  return const BriefDetails(
-                                      "My contacts", "", "", 0);
-                                }));
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.only(top: 20.0),
-                                child: const SizedBox(
-                                    child: Center(
-                                        child: Text("My contacts",
-                                            textScaleFactor: 2))),
-                              ),
-                            ),
-                          ],
-                        )
-                      ]),
-                      Stack(children: [
-                        Container(
-                          width: 250,
-                          height: 289,
-                          color: Colors.white,
-                        ),
-                      ]),
-                    ],
-                  )),
-            )
-          ],
-        );
+              );
+            
+           
       default:
         return const Text(
           "default widget",
