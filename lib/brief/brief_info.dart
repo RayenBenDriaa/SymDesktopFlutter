@@ -73,7 +73,7 @@ class _BriefInfoState extends State<BriefInfo> {
                 SizedBox(
                 width: 1500,
                 height: 500,
-                child: Icon(varicon,color: Colors.white,)
+                
               ),
               Container(
                 margin: const EdgeInsets.only(top: 70, left: 25, right: 20),
