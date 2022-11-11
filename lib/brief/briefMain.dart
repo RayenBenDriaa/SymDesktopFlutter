@@ -1,3 +1,4 @@
+import 'package:briefcase/home/symhome.dart';
 import 'package:briefcase/icons/symicons.dart';
 import 'package:flutter/material.dart';
 import 'briefCase.dart';
@@ -19,7 +20,7 @@ class BriefMain extends StatefulWidget {
 }
 
 class _BriefMain extends State<BriefMain> {
-  String? dropdownValue;
+  String? dropdownValue ;
   bool shadowColor = false;
   var _popupMenuItemIndex = 0;
   double? scrolledUnderElevation;
@@ -38,12 +39,14 @@ class _BriefMain extends State<BriefMain> {
          actions: [
           Row(
             children: <Widget>[
+             
               Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 100, 0),
                   child: DropdownButton<String>(
-                    value: dropdownValue,
+                    
+                    value: dropdownValue ?? "Choose your briefcase",
                     icon: const Icon(Symicons.Icons_small_bottom_arrow_icon_120x120,color: Colors.white,),
-                    elevation: 16,
+                    elevation: 0,
                     style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0),),
                     underline: Container(
                       height: 0,
@@ -69,73 +72,62 @@ class _BriefMain extends State<BriefMain> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Symicons.Icons_doctors_icon_120x120),
+                    style: IconButton.styleFrom(foregroundColor: Colors.white),
+                    iconSize: 30,
+                  ),
+                ),
+                  Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(Symicons.Icons_download_icon_120x120),
                     style: IconButton.styleFrom(foregroundColor: Colors.white),
+                    iconSize: 32,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(Symicons.Icons_survey_icon_120x120),
                     style: IconButton.styleFrom(foregroundColor: Colors.white),
+                    iconSize: 32,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                   child: IconButton(
                       onPressed: () {},
                       icon:
                           const Icon(Symicons.Icons_tag_list_icon_120x120),
-                      style: IconButton.styleFrom(foregroundColor: Colors.white)),
+                      style: IconButton.styleFrom(foregroundColor: Colors.white),
+                      iconSize: 32,),
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(Symicons.Icons_favorites_list_icon_120x120),
-                    style: IconButton.styleFrom(foregroundColor: Colors.white)
+                    style: IconButton.styleFrom(foregroundColor: Colors.white),
+                    iconSize: 32,
                   ),
                 ),
                  Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                    child: IconButton(
                     onPressed: () {},
                     icon: const Icon(Symicons.Icons_config_icon_120x120),
-                    style: IconButton.styleFrom(foregroundColor: Colors.white)
+                    style: IconButton.styleFrom(foregroundColor: Colors.white),
+                    iconSize: 32,
                                  ),
                  ),
 
-              // PopupMenuButton(
-              //   icon: Icon(Icons.more_vert),
-              //   itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-              //     const PopupMenuItem(
-              //       child: ListTile(
-              //         leading: Icon(Icons.add),
-              //         title: Text('Item 1'),
-              //       ),
-              //     ),
-              //     const PopupMenuItem(
-              //       child: ListTile(
-              //         leading: Icon(Icons.anchor),
-              //         title: Text('Item 2'),
-              //       ),
-              //     ),
-              //     const PopupMenuItem(
-              //       child: ListTile(
-              //         leading: Icon(Icons.article),
-              //         title: Text('Item 3'),
-              //       ),
-              //     ),
-              //     const PopupMenuDivider(),
-              //     const PopupMenuItem(child: Text('Item A')),
-              //     const PopupMenuItem(child: Text('Item B')),
-              //   ],
-              // ),
+       
 
              
             ],
@@ -144,7 +136,8 @@ class _BriefMain extends State<BriefMain> {
           title:   IconButton(
                   onPressed: () {},
                   icon: const Icon(Symicons.Icons_search_icon_120x120),
-                  style: IconButton.styleFrom(foregroundColor: Colors.white)
+                  style: IconButton.styleFrom(foregroundColor: Colors.white),
+                  iconSize: 32,
                 ),
           leading: InkWell(
             child: Image.asset(
@@ -189,7 +182,7 @@ class _BriefMain extends State<BriefMain> {
                     ),
                     initialRoute: '/W1',
                     routes: {
-                      '/W1': (context1) => const Briefcase(),
+                      '/W1': (context1) => const SymHome(),
                     })),
           ],
         ),

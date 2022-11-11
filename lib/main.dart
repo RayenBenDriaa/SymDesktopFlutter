@@ -1,3 +1,5 @@
+import 'package:briefcase/brief/briefCase.dart';
+import 'package:briefcase/home/symhome.dart';
 import 'package:briefcase/testRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
@@ -28,7 +30,13 @@ class AppBarApp extends StatelessWidget {
         },
         "/":(BuildContext context) {
           return const BriefMain();
-        }
+        },
+        "/s":(BuildContext context)  {
+          return const SymHome();
+        },
+        "/briefcase":(BuildContext context)  {
+          return const Briefcase();
+        },
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
