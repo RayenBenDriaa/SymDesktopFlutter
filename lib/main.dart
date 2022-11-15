@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io';
 import 'brief/briefMain.dart';
+import 'package:splash_view/splash_view.dart';
+
 
 const symColor = Color(0xFF1e4cab);
 
@@ -24,11 +26,17 @@ class AppBarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home:  SplashView(
+        backgroundColor: symColor,
+        backgroundImageDecoration:BackgroundImageDecoration(image: AssetImage("assets/images/SymSplash.png")) ,
+        done: Done(BriefMain()),
+      ),
+       
       routes: {
         "/test": (BuildContext context) {
           return const TestRouts();
         },
-        "/":(BuildContext context) {
+        "/r":(BuildContext context) {
           return const BriefMain();
         },
         "/s":(BuildContext context)  {
