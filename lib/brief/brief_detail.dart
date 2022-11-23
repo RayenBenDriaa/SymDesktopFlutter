@@ -1,5 +1,7 @@
 import 'package:briefcase/icons/symicons.dart';
+import 'package:briefcase/pdfplugin.dart';
 import 'package:flutter/material.dart';
+import 'package:pdfx/pdfx.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:briefcase/icons/symicons.dart';
@@ -34,6 +36,9 @@ class _BriefDetailsState extends State<BriefDetails> {
   final Color pubColor = const Color(0xFF75ACD8);
   final Color contactColor = const Color(0xFFCEEEE5);
   String url = "https://www.fluttercampus.com";
+   static const int _initialPage = 2;
+  bool _isSampleDoc = true;
+  late PdfController _pdfController;
 
   @override
   void initState() {
@@ -44,6 +49,16 @@ class _BriefDetailsState extends State<BriefDetails> {
       removedItemBuilder: _buildRemovedItem,
     );
     _nextItem = 4;
+     _pdfController = PdfController(
+      document: PdfDocument.openAsset('assets/essai.pdf'),
+      initialPage: _initialPage,
+    );
+  }
+  
+ @override
+  void dispose() {
+    _pdfController.dispose();
+    super.dispose();
   }
 
   Widget _buildItem(
@@ -490,7 +505,7 @@ class _BriefDetailsState extends State<BriefDetails> {
                 ),
               );
       case 2:
-        return Container(
+      return Container(
                   height: 848,
                   margin: const EdgeInsets.only(top: 3),
                   color: presentationColor,
@@ -642,9 +657,19 @@ class _BriefDetailsState extends State<BriefDetails> {
                             width: 10,
                           ),
                         ],
+                      ),
+                      Container(
+                        child: InkWell(child: Text("Brand Book Symmetryk"),
+                        onTap: () {
+                           Navigator.of(context)
+                .push(MaterialPageRoute(builder: (BuildContext context) {
+              return const PdfPlugin();
+            }));
+                        },),
                       )
                     ],
                   ));
+
             
       case 3:
         return Container(
@@ -923,4 +948,26 @@ class CardItem extends StatelessWidget {
     );
   }
 }
-/// The base class for the different types of items the list can contain.
+/// The Pdf PART 
+
+
+  PhotoViewGalleryPageOptions _pageBuilder(
+    BuildContext context,
+    Future<PdfPageImage> pageImage,
+    int index,
+    PdfDocument document,
+  ) {
+    return PhotoViewGalleryPageOptions(
+      imageProvider: PdfPageImageProvider(
+        pageImage,
+        index,
+        document.id,
+      ),
+      minScale: PhotoViewComputedScale.contained * 1,
+      maxScale: PhotoViewComputedScale.contained * 2,
+      initialScale: PhotoViewComputedScale.contained * 1.0,
+      heroAttributes: PhotoViewHeroAttributes(tag: '${document.id}-$index'),
+    );
+  }
+ 
+

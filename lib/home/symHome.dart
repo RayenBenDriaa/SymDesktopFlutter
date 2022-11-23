@@ -23,35 +23,43 @@ class _HomeState extends State<SymHome> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context)
-                .push(MaterialPageRoute(builder: (BuildContext context) {
-              return Briefcase();
-            }));
-      },
-      child: Stack(children: [
-        Container(
-          margin:EdgeInsets.fromLTRB(40, 60, 30, 20),
-          width: 250,
-          height: 250,
-          child: Image.asset(
-            "assets/images/briefcase.png",
-            fit: BoxFit.fill,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) {
+                  return Briefcase();
+                }));
+          },
+          child: Stack(children: [
+            Container(
+              margin:EdgeInsets.fromLTRB(40, 60, 30, 20),
+              width: 250,
+              height: 250,
+              child: Image.asset(
+                "assets/images/briefcase.png",
+                fit: BoxFit.fill,
+              ),
+            ),
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(75, 80, 5, 15),
+                  height: 250,
+                  width: 180,
+                  child: Image.asset("assets/images/brand.jpg")
+                ),
+               
+              ],
+            ),]
           ),
         ),
-        Column(
-          children: [
-            Container(
-              margin: EdgeInsets.fromLTRB(75, 80, 5, 15),
-              height: 250,
-              width: 180,
-              child: Image.asset("assets/images/brand.jpg")
-            ),
-           
-          ],
-        ),]
-      ),
+        Text("Eric Dupont Briefcase",style: TextStyle(color: Colors.black ,fontWeight: FontWeight.normal ,fontStyle: FontStyle.normal ),
+        textAlign: TextAlign.start,)
+      ],
     );
+
   }
 }

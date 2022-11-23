@@ -27,7 +27,9 @@ class AppBarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home:  SplashView(
+        
         backgroundColor: symColor,
+        showStatusBar: true,
         backgroundImageDecoration:BackgroundImageDecoration(image: AssetImage("assets/images/SymSplash.png")) ,
         done: Done(BriefMain()),
       ),

@@ -43,11 +43,11 @@ class _BriefMain extends State<BriefMain> {
               Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 100, 0),
                   child: DropdownButton<String>(
-                    
+                    dropdownColor: symColor,
                     value: dropdownValue ?? "Choose your briefcase",
                     icon: const Icon(Symicons.Icons_small_bottom_arrow_icon_120x120,color: Colors.white,),
                     elevation: 0,
-                    style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0),),
+                    style: const TextStyle(color: Color.fromARGB(255, 255,255, 255),),
                     underline: Container(
                       height: 0,
 
@@ -84,6 +84,15 @@ class _BriefMain extends State<BriefMain> {
                   padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                   child: IconButton(
                     onPressed: () {},
+                    icon: const Icon(Symicons.Icons_like_icon_120x120_190),
+                    style: IconButton.styleFrom(foregroundColor: Colors.white),
+                    iconSize: 32,
+                  ),
+                ),
+                  Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                  child: IconButton(
+                    onPressed: () {},
                     icon: const Icon(Symicons.Icons_download_icon_120x120),
                     style: IconButton.styleFrom(foregroundColor: Colors.white),
                     iconSize: 32,
@@ -94,6 +103,15 @@ class _BriefMain extends State<BriefMain> {
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(Symicons.Icons_survey_icon_120x120),
+                    style: IconButton.styleFrom(foregroundColor: Colors.white),
+                    iconSize: 32,
+                  ),
+                ),
+                  Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Symicons.Icons_346),
                     style: IconButton.styleFrom(foregroundColor: Colors.white),
                     iconSize: 32,
                   ),
