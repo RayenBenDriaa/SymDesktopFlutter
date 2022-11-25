@@ -41,7 +41,7 @@ class _BriefMain extends State<BriefMain> {
             children: <Widget>[
              
               Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 100, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 180, 0),
                   child: DropdownButton<String>(
                     dropdownColor: symColor,
                     value: dropdownValue ?? "Choose your briefcase",
